@@ -58,8 +58,8 @@ with open('data.json', 'rb') as f:
                 try:
                     csv_writer.writerow(data)
                     print('new data written')
+                    data_count += 1
                 except UnicodeEncodeError:
                     print('writing failed. Error detected')
-                data_count += 1
 
 csv_file.close()
