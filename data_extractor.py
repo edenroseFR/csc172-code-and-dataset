@@ -9,9 +9,8 @@ countries = {}
 
 with open('data.json', 'rb') as f:
     data_count = 0
-    iteration = 0
     for record in ijson.items(f, '', multiple_values=True):
-        if data_count == 500:
+        if data_count == 2500:
             break
         if record['location'] and record['location'].title() in top_countries:
             if record['location'].title() not in countries:
