@@ -10,7 +10,7 @@ countries = {}
 with open('data.json', 'rb') as f:
     data_count = 0
     for record in ijson.items(f, '', multiple_values=True):
-        if data_count == 2500:
+        if data_count == 1500:
             break
         if record['location'] and record['location'].title() in top_countries:
             if record['location'].title() not in countries:
@@ -21,7 +21,7 @@ with open('data.json', 'rb') as f:
             if record['location'].title() in countries and \
                     ((record['hirable'] and countries[record['location'].title()]['hireable'] < 250) or
                         ((not record['hirable']) and countries[record['location'].title()]['not_hireable'] < 250)) and \
-                    data_count < 2500:
+                    data_count < 1500:
 
                 email = 1 if record['email'] and record['email'] != 'null' else 0
                 company = 1 if record['company'] and record['company'] != 'null' else 0
